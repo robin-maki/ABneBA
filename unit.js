@@ -3,13 +3,14 @@ const Bullet = require('./bullet');
 
 const SPEED = 2;
 const TURN_SPEED = 0.1;
+const SIZE = 10;
 
 class Unit {
     constructor(position) {
         this.hp = 100;
         this.position = position; // vector {x,y}
         this.direction = 0; // angle(radian), -PI < direction <= PI
-        this.size = 10; // radius
+        this.size = SIZE; // radius
         this.weapon = gun;
         this.bullet = gun.magazine;
         this.cooltime = 0;
@@ -40,9 +41,6 @@ class Unit {
         let b = new Bullet(this.position, this.angle, this.weapon);
         
     }
-    getDamage() {
-
-    }
     throwItem() {
 
     }
@@ -50,3 +48,7 @@ class Unit {
 
     }
 }
+
+Unit.
+
+module.exports = Unit;
