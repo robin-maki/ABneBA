@@ -2,14 +2,17 @@ const Unit = require('./unit');
 
 const FPS = 15;
 const TEAM_POP = 20;
+const MAP_SIZE = 5000;
 
 let frame;
 let units = [];
 let bullets = [];
 let count = [0, 0];
+let mapSize = 5000;
 
 setInterval(() => {
     frame++;
+    mapSize--;
 }, 1000 / FPS);
 
 module.exports = {
@@ -20,9 +23,12 @@ module.exports = {
     init() {
         count = [TEAM_POP, TEAM_POP];
         for(let i = 0; i < TEAM_POP; i++) {
-            let u = new Unit({x: 0, y: 0});
-            // TODO 유닛 적당히 뿌려주기
-            
+            const rad = Math.random() * Math.PI * 2;
+            let u = new Unit({
+                x: Math.cos(rad) * Math.random() * mapSize,
+                y: Math.sin(rad) * Math.random() * mapSize
+            });
+            units.push(u);
         }
     },
     boundUnits(center, radius) {
