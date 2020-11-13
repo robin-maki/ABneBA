@@ -40,9 +40,6 @@ class Unit {
         let b = new Bullet(this.position, this.angle, this.weapon);
         
     }
-    getDamage() {
-
-    }
     throwItem(item, distance) { // throw forward
         switch (item){
             case "flash":
