@@ -2,6 +2,8 @@
 맵크기: 
 */
 // 상위: 시야 제공
+
+
 class Unit {
     constructor(position) {
         this.hp = 100;
@@ -37,10 +39,14 @@ class Unit {
     getDamage() {
 
     }
-    throwItem() {
-
-    }
-    useItem() {
-
+    throwItem(item, distance) { // throw forward
+        switch (item){
+            case "flash":
+                break;
+            case "smoke": 
+                break;
+            case "grenade":
+                break;
+        }
     }
 }

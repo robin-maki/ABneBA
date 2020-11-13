@@ -1,0 +1,3 @@
+class Flash extends Thrown {
+    
+}

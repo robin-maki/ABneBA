@@ -1,0 +1,3 @@
+class Grenade extends Thrown {
+    
+}
