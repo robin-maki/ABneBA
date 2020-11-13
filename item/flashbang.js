@@ -1,3 +1,0 @@
-class Flashbang extends ItemOwned {
-    
-}
