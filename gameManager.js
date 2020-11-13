@@ -30,6 +30,24 @@ setInterval(() => {
             }
             units.splice(index, 1);
         }
+        // make units blind
+        if (unit.blindTime > 0) {
+            unit.blindTime--;
+        }
+    });
+    bullets.forEach((bullet, index) => {
+        // move bullet
+        bullet.position.x += bullet.SPEED*Math.cos(bullet.angle);
+        bullet.position.y += bullet.SPEED*Math.sin(bullet.angle);
+        bullet.LIFE--;
+        // scan hit units
+        units.forEach((unit) => {
+            if (Math.pow(unit.position.x - bullet.position.x,2)+Math.pow(unit.position.y - bullet.position.y,2) <= 100)
+                unit.hp -= bullet.damage;
+        });
+        // disappeared bullets
+        if (bullet.LIFE = 0)
+            bullets.splice(index, 1);
     });
 }, 1000 / FPS);
 
@@ -67,5 +85,4 @@ module.exports = {
         });
         return result;
     }
-    // Unit.blindTime 값 가져와서 해당 유닛 시야 제한
 }

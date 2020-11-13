@@ -6,12 +6,5 @@ class Flash extends Thrown {
         units.foreach((unit) =>{
             unit.blindTime = 45;
         });
-        count = 45
-        while (count != 0) {
-            units.foreach((unit) => {
-                unit.blindTime--;
-            });
-            count--;
-        }
     }
 }
