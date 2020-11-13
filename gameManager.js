@@ -36,9 +36,13 @@ setInterval(() => {
             }
             units.splice(index, 1);
         }
-        // make units blind
+        // blind unit
         if (unit.blindTime > 0) {
             unit.blindTime--;
+        }
+        // unit in cooltime
+        if (unit.cooltime > 0) {
+            cooltime--;
         }
     });
     bullets.forEach((bullet, index) => {

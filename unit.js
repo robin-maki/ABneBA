@@ -44,7 +44,16 @@ class Unit {
         }
     }
     shoot() {
-        let b = new Bullet(this.position, this.angle, this.weapon.damage);
+        if (bullet != 0){
+            let b = new Bullet(this.position, this.angle, this.weapon.damage);
+            this.bullet--;
+            this.cooltime = this.weapon.cooltime;   
+        }
+        else
+            this.reload();
+    }
+    reload() {
+        this.cooltime = 45;
     }
     throwItem(item, distance) { // throw forward
         switch (item){
