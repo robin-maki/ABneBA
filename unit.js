@@ -13,6 +13,8 @@ class Unit {
         this.weapon = gun;
         this.bullet = gun.magazine;
         this.cooltime = 0;
+        this.canSee = true;
+        this.isShown = true;
     }
     goStraight(speed=SPEED) { // execute once per frame
         if (speed > SPEED) {
