@@ -1,0 +1,3 @@
+class Rader extends ItemOwned {
+    
+}
