@@ -16,7 +16,7 @@ setInterval(() => {
     // scan units out of map
     units.forEach((unit) => {
         if( Math.sqrt(Math.pow(unit.position.x,2) + Math.pow(unit.position.y,2)) - unit.SIZE >= mapsize ) {
-            unit.hp -= frame*0.01;
+            unit.hp -= (Math.floor(frame/900) + 1) * 1;
         }
     });
 }, 1000 / FPS);
