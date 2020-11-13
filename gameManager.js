@@ -8,7 +8,7 @@ let frame;
 let units = [];
 let bullets = [];
 let count = [0, 0];
-let mapSize = 5000;
+let mapSize = 5000; // radius
 
 setInterval(() => {
     frame++;
