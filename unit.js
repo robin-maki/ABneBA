@@ -14,10 +14,15 @@ class Unit {
         this.weapon = gun;
         this.bullet = gun.magazine;
         this.cooltime = 0;
+        this.canSee = true;
+        this.isShown = true;
     }
     goStraight(speed=SPEED) { // execute once per frame
         if (speed > SPEED) {
             speed = SPEED;
+        }
+        else if (speed < 0) {
+            speed = 0;
         }
         this.position.x += Math.cos(this.direction)*speed;
         this.position.y += Math.sin(this.direction)*speed;
@@ -41,14 +46,18 @@ class Unit {
         let b = new Bullet(this.position, this.angle, this.weapon);
         
     }
-    throwItem() {
-
-    }
-    useItem() {
-
+    throwItem(item, distance) { // throw forward
+        switch (item){
+            case "flash":
+                break;
+            case "smoke":
+                break;
+            case "grenade":
+                break;
+        }
     }
 }
 
-Unit.
+Unit.SIZE = SIZE;
 
 module.exports = Unit;
