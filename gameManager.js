@@ -1,4 +1,7 @@
 const Unit = require('./unit');
+const Flash = require('./item/flash')
+const Grenade = require('./item/grenade')
+const Smoke = require('./item/smoke')
 
 const FPS = 15;
 const TEAM_POP = 20;
@@ -7,6 +10,9 @@ const MAP_SIZE = 5000;
 let frame;
 let units = [];
 let bullets = [];
+let itemsOwned = {"RED":{"FLASH":0,"GRENADE":0,"SMOKE":0}, "BLUE":{"FLASH":0,"GRENADE":0,"SMOKE":0}};
+let itemsOnField = [];
+let itemsThrown = [];
 let count = [0, 0]; /// left: red / right: blue
 let mapSize = 5000; // radius
 
@@ -74,6 +80,7 @@ module.exports = {
             }, "BLUE");
             units.push(u);
         }
+        itemsOwned = {"RED":{"FLASH":3,"GRENADE":3,"SMOKE":3}, "BLUE":{"FLASH":3,"GRENADE":3,"SMOKE":3}};
     },
     boundUnits(position, radius) {  // position: vector {x,y} / radius
         let result = [];
