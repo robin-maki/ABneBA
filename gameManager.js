@@ -1,4 +1,7 @@
 const Unit = require('./unit');
+const Flash = require('./item/flash')
+const Grenade = require('./item/grenade')
+const Smoke = require('./item/smoke')
 
 const FPS = 15;
 const TEAM_POP = 20;
@@ -7,6 +10,9 @@ const MAP_SIZE = 5000;
 let frame;
 let units = [];
 let bullets = [];
+let itemsOwned = {"RED":{"FLASH":0,"GRENADE":0,"SMOKE":0}, "BLUE":{"FLASH":0,"GRENADE":0,"SMOKE":0}};
+let itemsOnField = [];
+let itemsThrown = [];
 let count = [0, 0]; /// left: red / right: blue
 let mapSize = 5000; // radius
 
@@ -39,20 +45,20 @@ setInterval(() => {
         // move bullet
         bullet.position.x += bullet.SPEED*Math.cos(bullet.angle);
         bullet.position.y += bullet.SPEED*Math.sin(bullet.angle);
-        bullet.LIFE--;
+        bullet.life--;
         // scan hit units
-        units.forEach((unit) => {
-            if (Math.pow(unit.position.x - bullet.position.x,2)+Math.pow(unit.position.y - bullet.position.y,2) <= 100)
-                unit.hp -= bullet.damage;
+        module.exports.boundUnits(bullet.position, 0).forEach((unit, index) => {
+            unit.hp -= bullet.damage;
+            bullets.splice(index, 1);
         });
         // disappeared bullets
-        if (bullet.LIFE = 0)
+        if (bullet.life == 0)
             bullets.splice(index, 1);
     });
 }, 1000 / FPS);
 
 module.exports = {
-    FPS,
+    FPS, units, bullets,
     getFrame() {
         return frame;
     },
@@ -74,6 +80,7 @@ module.exports = {
             }, "BLUE");
             units.push(u);
         }
+        itemsOwned = {"RED":{"FLASH":3,"GRENADE":3,"SMOKE":3}, "BLUE":{"FLASH":3,"GRENADE":3,"SMOKE":3}};
     },
     boundUnits(position, radius) {  // position: vector {x,y} / radius
         let result = [];

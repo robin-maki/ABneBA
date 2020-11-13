@@ -9,7 +9,7 @@ class Unit {
     constructor(position, team) {
         this.hp = 100;
         this.position = position; // vector {x,y}
-        this.direction = 0; // angle(radian), -PI < direction <= PI
+        this.direction = Math.random() * Math.PI * 2 - Math.PI; // angle(radian), -PI < direction <= PI
         this.size = SIZE; // radius
         this.weapon = gun;
         this.bullet = gun.magazine;
