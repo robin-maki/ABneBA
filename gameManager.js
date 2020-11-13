@@ -25,7 +25,14 @@ module.exports = {
             
         }
     },
-    boundUnit(center, radius) {
-    
+    boundUnits(center, radius) {
+        let result = [];
+        const distance = radius + Unit.SIZE;
+        units.forEach((unit) => {
+            if(/* 대충 unit.position이랑 center가 distance보다 가까우면 */) {
+                result.push(unit);
+            }
+        });
+        return result;
     }
 }
