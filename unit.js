@@ -16,16 +16,11 @@ class unit {
         this.position.x += Math.cos(this.direction)*speed;
         this.position.y += Math.sin(this.direction)*speed;
     }
-    /*
     turn(speed=0.1) { // execute once per frame
         if (speed > 0.1) {
             speed = 0.1;
         }
         this.direction += angle;
-    }
-    */
-    changeDirection(postDir) {  // order
-        
     }
     shoot() {
 
