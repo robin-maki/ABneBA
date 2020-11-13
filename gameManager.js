@@ -13,6 +13,12 @@ let mapSize = 5000; // radius
 setInterval(() => {
     frame++;
     mapSize--;
+    // scan units out of map
+    units.forEach((unit) => {
+        if( Math.sqrt(Math.pow(unit.position.x,2) + Math.pow(unit.position.y,2)) - unit.SIZE >= mapsize ) {
+            unit.hp -= frame*0.01;
+        }
+    });
 }, 1000 / FPS);
 
 module.exports = {
