@@ -41,4 +41,5 @@ module.exports = {
         });
         return result;
     }
+    // Unit.blindTime 값 가져와서 해당 유닛 시야 제한
 }
