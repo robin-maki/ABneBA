@@ -25,11 +25,11 @@ module.exports = {
             
         }
     },
-    boundUnits(center, radius) {
+    boundUnits(position, radius) {  // position: vector {x,y} / radius
         let result = [];
         const distance = radius + Unit.SIZE;
         units.forEach((unit) => {
-            if(/* 대충 unit.position이랑 center가 distance보다 가까우면 */) {
+            if( Math.pow((unit.position.x-position.x,2)) + Math.pow((unit.position.y-position.y),2) <= Math.pow(distance,2) ) {
                 result.push(unit);
             }
         });
