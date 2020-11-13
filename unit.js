@@ -18,6 +18,9 @@ class Unit {
         if (speed > SPEED) {
             speed = SPEED;
         }
+        else if (speed < 0) {
+            speed = 0;
+        }
         this.position.x += Math.cos(this.direction)*speed;
         this.position.y += Math.sin(this.direction)*speed;
     }
