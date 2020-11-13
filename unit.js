@@ -14,7 +14,7 @@ class Unit {
         this.weapon = gun;
         this.bullet = gun.magazine;
         this.cooltime = 0;
-        this.canSee = true;
+        this.blindTime = 0;
         this.isShown = true;
         this.team = team;
     }

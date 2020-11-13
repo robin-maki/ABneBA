@@ -1,5 +1,10 @@
+const manager = require('./gameManager');
+
 class Flash extends Thrown {
     explode() {
-        // 충돌판정 함수 클라이언트에서 가져오기        
+        units = manager.boundUnits(this.position, 50)
+        units.foreach((unit) =>{
+            unit.blindTime = 45;
+        });
     }
 }
