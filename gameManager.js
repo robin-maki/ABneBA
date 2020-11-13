@@ -47,9 +47,9 @@ setInterval(() => {
         bullet.position.y += bullet.SPEED*Math.sin(bullet.angle);
         bullet.life--;
         // scan hit units
-        units.forEach((unit) => {
-            if (Math.pow(unit.position.x - bullet.position.x,2)+Math.pow(unit.position.y - bullet.position.y,2) <= 100)
-                unit.hp -= bullet.damage;
+        module.exports.boundUnits(bullet.position, 0).forEach((unit, index) => {
+            unit.hp -= bullet.damage;
+            bullets.splice(index, 1);
         });
         // disappeared bullets
         if (bullet.life == 0)
