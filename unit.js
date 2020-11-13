@@ -6,7 +6,7 @@ const TURN_SPEED = 0.1;
 const SIZE = 10;
 
 class Unit {
-    constructor(position) {
+    constructor(position, team) {
         this.hp = 100;
         this.position = position; // vector {x,y}
         this.direction = 0; // angle(radian), -PI < direction <= PI
@@ -14,8 +14,9 @@ class Unit {
         this.weapon = gun;
         this.bullet = gun.magazine;
         this.cooltime = 0;
-        this.canSee = true;
+        this.blindTime = 0;
         this.isShown = true;
+        this.team = team;
     }
     goStraight(speed=SPEED) { // execute once per frame
         if (speed > SPEED) {
