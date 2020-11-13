@@ -44,8 +44,7 @@ class Unit {
         }
     }
     shoot() {
-        let b = new Bullet(this.position, this.angle, this.weapon);
-        
+        let b = new Bullet(this.position, this.angle, this.weapon.damage);
     }
     throwItem(item, distance) { // throw forward
         switch (item){
