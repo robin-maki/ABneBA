@@ -34,7 +34,7 @@ setInterval(() => {
 }, 1000 / FPS);
 
 module.exports = {
-    FPS,
+    FPS, units, bullets,
     getFrame() {
         return frame;
     },
