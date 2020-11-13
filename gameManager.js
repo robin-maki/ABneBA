@@ -39,14 +39,14 @@ setInterval(() => {
         // move bullet
         bullet.position.x += bullet.SPEED*Math.cos(bullet.angle);
         bullet.position.y += bullet.SPEED*Math.sin(bullet.angle);
-        bullet.LIFE--;
+        bullet.life--;
         // scan hit units
         units.forEach((unit) => {
             if (Math.pow(unit.position.x - bullet.position.x,2)+Math.pow(unit.position.y - bullet.position.y,2) <= 100)
                 unit.hp -= bullet.damage;
         });
         // disappeared bullets
-        if (bullet.LIFE = 0)
+        if (bullet.life == 0)
             bullets.splice(index, 1);
     });
 }, 1000 / FPS);
