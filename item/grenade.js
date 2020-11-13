@@ -1,3 +1,0 @@
-class Grenade extends ItemOwned {
-    
-}

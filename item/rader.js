@@ -1,3 +1,0 @@
-class Rader extends ItemOwned {
-    
-}

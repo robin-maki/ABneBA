@@ -1,3 +1,0 @@
-class Flash extends ItemOwned {
-    
-}
